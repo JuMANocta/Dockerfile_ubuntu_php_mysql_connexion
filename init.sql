@@ -1,0 +1,3 @@
+CREATE USER 'host'@'%' IDENTIFIED BY 'passw0rd';
+GRANT ALL PRIVILEGES ON *.* TO 'host'@'%';
+FLUSH PRIVILEGES;
