@@ -1,4 +1,4 @@
-# FROM permet de chosir son image de base ici UBUNTU
+# FROM permet de chosir son image de base ici UBUNTU (alpine pas possible car pas de mysql-server possible)
 FROM ubuntu
 
 # Différentes actions RUN pour agir lors de la création de l'image
