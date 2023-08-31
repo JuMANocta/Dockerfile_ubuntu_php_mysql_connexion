@@ -1,0 +1,9 @@
+# Créer un réseau docker pour que deux conteneurs puissent communiquer
+docker network create -d bridge my_network
+# Créer un conteneur avec un Netcat qui écoute sur le port 1234
+docker run -d -it --name nc1 --network my_network alpine nc -l 1234
+# Créer un conteneur avec un Netcat qui envoie un message sur le port 1234
+docker run -d -it --name nc2 --network my_network alpine nc nc 1234
+# Vérifier que les deux conteneurs peuvent communiquer
+docker exec -it nc2 nc nc 1234
+Créer un fichier Dockerfile pour mettre en place un réseau et deux conteneurs

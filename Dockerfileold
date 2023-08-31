@@ -1,0 +1,15 @@
+#image slim debian
+FROM debian:stable-slim
+#mettre à jour les paquets
+RUN apt update
+#installation de netcat
+RUN apt install netcat-traditional -y
+#installation de apache2
+RUN apt install apache2 apache2-utils -y
+#exposer le port 80
+EXPOSE 80
+#exposer le port 4444
+EXPOSE 4444
+#lancer la commande bash
+ENTRYPOINT service apache2 start \
+&& /bin/bash

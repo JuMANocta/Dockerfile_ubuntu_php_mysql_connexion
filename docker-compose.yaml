@@ -1,0 +1,23 @@
+# créer un réseau pour que deux conteneurs communiquent entre eux
+version: '3.8'
+services:
+    web:
+        #image debian slim
+        image: debian:stable-slim
+        ports:
+            - "81:80"
+            - "4444:4444"
+        networks:
+            - mynet
+    db:
+        #image debian slim
+        image: debian:stable-slim
+        ports:
+            - "82:80"
+        networks:
+            - mynet
+networks:
+    mynet:
+        driver: bridge
+        external: true
+        
